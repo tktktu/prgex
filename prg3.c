@@ -87,7 +87,10 @@ int str2value(char str[]){
     return 0;
   }else if( str_digit == _digit(cmp) ){
     while(str[i]){
-      if(str[i] == '-') continue;
+      if(str[i] == '-') {
+        i++;
+        continue;
+      }
       //(3.1).str[i] < str[i]に対応するINT_MAX(INT_MIN)の桁の数
       //      オーバーフローが確定したので以降の処理を中断
       //(3.2).str[i] > str[i]に対応するINT_MAX(INT_MIN)の桁の数
@@ -117,9 +120,12 @@ int str2value(char str[]){
 
   //(2)または(3.2)のbreak後の残りの計算
   while(str[i]){
-    if(str[i] == '-') continue;
+    if(str[i] == '-') {
+      i++;
+      continue;
+    }
     //符号 * n桁目の数 * 10^str_digit
-    val += sign * (str[i] - '0') * _pow10(str_digit);
+    val += sign * ((str[i] - '0') * _pow10(str_digit));
     str_digit--;
     i++;
   }
