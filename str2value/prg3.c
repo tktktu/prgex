@@ -30,7 +30,7 @@ int main(){
 }
 
 int str2value(char str[]){
-  int i, val = 0, sign = 1;
+  int i, val = 0;
 
   //strが負の値の場合、INT_MINのみオーバーフローチェック
   //strが正の値の場合、INT_MAXのみオーバーフローチェック
