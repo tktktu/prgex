@@ -49,8 +49,8 @@ int str2value(char str[]){
         printf("Overflow\n");
         return 0;
       }
-      // val + (-1 * (stri[] - '0') ) はオーバーフローを起こすかチェック
-      // val + (-1 * (stri[] - '0') ) >= INT_MIN を式変形
+      // val + (-1 * (str[i] - '0') ) はオーバーフローを起こすかチェック
+      // val + (-1 * (str[i] - '0') ) >= INT_MIN を式変形
       if( val >= INT_MIN - (-1 * (str[i] - '0')) ){
         val += (-1 * (str[i] - '0'));
       }else{
@@ -73,8 +73,8 @@ int str2value(char str[]){
         printf("Overflow\n");
         return 0;
       }
-      // val + (stri[] - '0') はオーバーフローを起こすかチェック
-      // val + (stri[] - '0') <= INT_MAX を式変形
+      // val + (str[i] - '0') はオーバーフローを起こすかチェック
+      // val + (str[i] - '0') <= INT_MAX を式変形
       if( val <= INT_MAX - (str[i] - '0') ){
         val += (str[i] - '0');
       }else{
