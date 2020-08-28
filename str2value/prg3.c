@@ -51,7 +51,6 @@ int str2value(char str[]){
       }
       // val + (-1 * (stri[] - '0') ) はオーバーフローを起こすかチェック
       // val + (-1 * (stri[] - '0') ) >= INT_MIN を式変形
-      if( val >= INT_MIN / 10 ){
       if( val >= INT_MIN - (-1 * (str[i] - '0')) ){
         val += (-1 * (str[i] - '0'));
       }else{
@@ -68,7 +67,6 @@ int str2value(char str[]){
       }
       // val * 10 はオーバーフローを起こすかチェック
       // val * 10 <= INT_MAX を式変形
-      if( val >= INT_MIN / 10 ){
       if( val <= INT_MAX / 10 ){
         val *= 10;
       }else{
